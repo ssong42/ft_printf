@@ -6,7 +6,7 @@
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/26 10:42:53 by ssong             #+#    #+#             */
-/*   Updated: 2018/03/23 21:47:26 by ssong            ###   ########.fr       */
+/*   Updated: 2018/03/23 21:54:45 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ int			ft_printf(const char *str, ...)
 	data = init_info();
 	while (str[data->info->index])
 	{
-	/*
 		if (str[data->info->index] == '%')
 			data = find_format(str, data, &args);
 		else
@@ -83,9 +82,8 @@ int			ft_printf(const char *str, ...)
 			data->info->printed++;
 			data->info->index++;
 		}
-	*/
-		ft_putchar(str[data->info->index]);
-		data->info->index++;
+	//	ft_putchar(str[data->info->index]);
+	//	data->info->index++;
 	}
 	chars = data->info->printed;
 	ft_memdel((void **)&data->info);
