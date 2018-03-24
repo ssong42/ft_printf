@@ -6,7 +6,7 @@
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/16 13:51:04 by ssong             #+#    #+#             */
-/*   Updated: 2018/03/23 21:55:45 by ssong            ###   ########.fr       */
+/*   Updated: 2018/03/23 22:03:54 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ t_info			*print_octal(va_list *args, t_info *info)
 	char		*buf;
 
 	buf = NULL;
+	ft_putendl("test");
 	num = hexi_modifiers(info, args);
 	buf = ft_itoa_base(num, 8);
 	buf = precision_octal(info, buf);

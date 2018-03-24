@@ -6,7 +6,7 @@
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/16 11:30:11 by ssong             #+#    #+#             */
-/*   Updated: 2018/03/23 21:59:43 by ssong            ###   ########.fr       */
+/*   Updated: 2018/03/23 22:03:40 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ static t_info	*hexi_space(t_info *info, char *buf, uintmax_t num)
 	else if (info->left == 0)
 		temp = ft_strrcpy(temp, buf, ft_strlen(temp), ft_strlen(buf));
 	ft_putstr(temp);
-//	if (info->hash == 1 && info->zero == 0)
-	//	ft_memdel((void **)&buf);
+	if (info->hash == 1 && info->zero == 0)
+		ft_memdel((void **)&buf);
 	ft_memdel((void **)&temp);
 	info->printed += info->space;
 	return (info);
@@ -86,6 +86,7 @@ t_info			*print_hexi(va_list *args, t_info *info)
 	uintmax_t	num;
 	char		*buf;
 
+	ft_putstr("test\n");
 	num = hexi_modifiers(info, args);
 	if (info->format == 'x')
 		buf = ft_hexitoa(num);
