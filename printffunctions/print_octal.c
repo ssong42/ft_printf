@@ -6,7 +6,7 @@
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/16 13:51:04 by ssong             #+#    #+#             */
-/*   Updated: 2018/03/23 22:03:54 by ssong            ###   ########.fr       */
+/*   Updated: 2018/03/23 22:06:08 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static	t_info	*print_buf(t_info *info, char *buf, uintmax_t num)
 	if (info->space == 0 || info->space <= (int)ft_strlen(buf))
 	{
 		if (info->hash == 1 && num > 0)
-			buf = ft_strjoinfree("0", buf);
+			buf = ft_strjoin("0", buf);
 		if (info->plus == 1)
 		{
 			info->printed++;
@@ -84,7 +84,6 @@ t_info			*print_octal(va_list *args, t_info *info)
 	char		*buf;
 
 	buf = NULL;
-	ft_putendl("test");
 	num = hexi_modifiers(info, args);
 	buf = ft_itoa_base(num, 8);
 	buf = precision_octal(info, buf);

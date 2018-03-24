@@ -6,7 +6,7 @@
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/16 11:30:11 by ssong             #+#    #+#             */
-/*   Updated: 2018/03/23 22:03:40 by ssong            ###   ########.fr       */
+/*   Updated: 2018/03/23 22:06:18 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,6 @@ t_info			*print_hexi(va_list *args, t_info *info)
 	uintmax_t	num;
 	char		*buf;
 
-	ft_putstr("test\n");
 	num = hexi_modifiers(info, args);
 	if (info->format == 'x')
 		buf = ft_hexitoa(num);
