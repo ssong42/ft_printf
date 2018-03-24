@@ -6,7 +6,7 @@
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/21 11:04:18 by ssong             #+#    #+#             */
-/*   Updated: 2018/03/21 12:52:49 by ssong            ###   ########.fr       */
+/*   Updated: 2018/03/23 21:07:15 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_info	*parse_space(const char *str, t_info *info)
 	char	*temp;
 
 	a = info->index;
-	while (isdigit(str[a]))
+	while (ft_isdigit(str[a]))
 		a++;
 	temp = extract_string(str, info->index, a);
 	info->index = a - 1;
@@ -35,13 +35,13 @@ t_info	*parse_precision(const char *str, t_info *info)
 
 	info->index++;
 	a = info->index;
-	if (!isdigit(str[a]))
+	if (!ft_isdigit(str[a]))
 	{
 		info->index = a - 1;
 		info->precision = 0;
 		return (info);
 	}
-	while (isdigit(str[a]))
+	while (ft_isdigit(str[a]))
 		a++;
 	temp = extract_string(str, info->index, a);
 	info->index = a - 1;

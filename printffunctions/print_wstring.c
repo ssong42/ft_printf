@@ -6,7 +6,7 @@
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/20 19:51:25 by ssong             #+#    #+#             */
-/*   Updated: 2018/03/23 18:51:49 by ssong            ###   ########.fr       */
+/*   Updated: 2018/03/23 20:42:19 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,6 @@ t_info		*print_wstr(va_list *args, t_info *info)
 		ft_wputstr(str);
 		info->printed += ft_wstrlen(str);
 	}
+	ft_memdel((void **)&str);
 	return (info);
 }

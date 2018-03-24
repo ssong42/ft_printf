@@ -6,7 +6,7 @@
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/15 10:35:32 by ssong             #+#    #+#             */
-/*   Updated: 2018/03/23 18:54:39 by ssong            ###   ########.fr       */
+/*   Updated: 2018/03/23 21:05:37 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ static char	*space_str(t_info *info, char *str)
 t_info		*print_str(va_list *args, t_info *info)
 {
 	char *str;
+	char *str2;
 
 	if (info->modifier == 'l')
 		return (print_wstr(args, info));
@@ -49,13 +50,13 @@ t_info		*print_str(va_list *args, t_info *info)
 		info->printed += 6;
 		return (info);
 	}
-	str = ft_strdup(str);
+	str2 = ft_strdup(str);
 	if (info->precision >= 0)
-		str = precision_str(info, str);
+		str2 = precision_str(info, str2);
 	if (info->space > 0)
-		str = space_str(info, str);
-	info->printed += ft_strlen(str);
-	ft_putstr(str);
-	ft_memdel((void **)&str);
+		str2 = space_str(info, str2);
+	info->printed += ft_strlen(str2);
+	ft_putstr(str2);
+	ft_memdel((void **)&str2);
 	return (info);
 }

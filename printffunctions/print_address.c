@@ -6,7 +6,7 @@
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/16 22:44:32 by ssong             #+#    #+#             */
-/*   Updated: 2018/03/23 18:52:14 by ssong            ###   ########.fr       */
+/*   Updated: 2018/03/23 20:47:16 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ t_info	*print_address(va_list *args, t_info *info)
 	char		*str;
 
 	digit = va_arg((*args), uintmax_t);
-	ft_hexitoa(digit);
 	str = ft_strjoin("0x", ft_hexitoa(digit));
 	ft_putstr(str);
 	info->printed += ft_strlen(str);

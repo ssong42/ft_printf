@@ -6,7 +6,7 @@
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/26 10:42:53 by ssong             #+#    #+#             */
-/*   Updated: 2018/03/23 18:51:17 by ssong            ###   ########.fr       */
+/*   Updated: 2018/03/23 20:36:39 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,7 @@ int			ft_printf(const char *str, ...)
 	}
 	chars = data->info->printed;
 	ft_memdel((void **)&data->info);
+	ft_memdel((void **)&data->functions);
+	ft_memdel((void **)&data);
 	return (chars);
 }
