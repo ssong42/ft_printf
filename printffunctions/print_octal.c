@@ -6,7 +6,7 @@
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/16 13:51:04 by ssong             #+#    #+#             */
-/*   Updated: 2018/03/23 21:42:09 by ssong            ###   ########.fr       */
+/*   Updated: 2018/03/23 21:43:25 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ static t_info	*space_octal(t_info *info, char *buf)
 		else if (info->left == 0)
 			temp = ft_strrcpy(temp, buf, ft_strlen(temp), ft_strlen(buf));
 		ft_putstr(temp);
-		if (info->hash == 1)
-			ft_memdel((void **)&buf);
+//		if (info->hash == 1)
+//			ft_memdel((void **)&buf);
 		ft_memdel((void **)&temp);
 	}
 	return (info);
