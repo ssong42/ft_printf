@@ -6,48 +6,35 @@
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/16 22:27:34 by ssong             #+#    #+#             */
-/*   Updated: 2018/03/20 10:26:46 by ssong            ###   ########.fr       */
+/*   Updated: 2018/03/23 20:20:05 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 #include "ft_printf.h"
 
-t_info	*print_udecimal(va_list *args, t_info *info)
+static char		*udeci_precision(char *buf, t_info *info)
 {
-	intmax_t	num;
-	char		*buf;
-	char		*temp;
+	char	*temp;
 
 	temp = NULL;
-	num = 0;
-	if (info->modifier == 0 && info->format == 'u')
-		num = (uintmax_t)va_arg((*args), unsigned int);
-	if (info->modifier == 0 && info->format == 'U')
-		num = (uintmax_t)va_arg((*args), unsigned long int);
-	else if (info->modifier == 'l')
-		num = (uintmax_t)va_arg((*args), unsigned long int);
-	// ll
-	else if (info->modifier == 'm')
-		num = (uintmax_t)va_arg((*args), unsigned long long int);
-	else if (info->modifier == 'h')
-		num = (uintmax_t)va_arg((*args), unsigned long int);
-	// hh
-	else if (info->modifier == 'a')
-		num = (uintmax_t)(unsigned char)va_arg((*args), unsigned int);
-	else if (info->modifier == 'j')
-		num = va_arg((*args), uintmax_t);
-	else if (info->modifier == 'z')
-		num = (uintmax_t)va_arg((*args), size_t);
-	buf = ft_uintmaxt_itoa(num);
-	if (info->space < (int)ft_strlen(buf))
-		info->space = 0;
 	if (info->precision > (int)ft_strlen(buf))
 	{
 		temp = ft_memalloc(info->precision + 1);
 		temp = ft_memset(temp, '0', info->precision);
-		buf = ft_strrcpy(temp, buf, ft_strlen(temp), ft_strlen(buf));
+		temp = ft_strrcpy(temp, buf, ft_strlen(temp), ft_strlen(buf));
+		ft_memdel((void **)&buf);
+		return (temp);
 	}
+	return (buf);
+}
+
+static t_info	*udeci_space(char *buf, t_info *info)
+{
+	char *temp;
+
+	if (info->space < (int)ft_strlen(buf))
+		info->space = 0;
 	if (info->space > 0)
 	{
 		info->printed += info->space;
@@ -61,12 +48,31 @@ t_info	*print_udecimal(va_list *args, t_info *info)
 		if (info->left == 0)
 			temp = ft_strrcpy(temp, buf, ft_strlen(temp), ft_strlen(buf));
 		ft_putstr(temp);
+		ft_memdel((void **)&temp);
 	}
+	return (info);
+}
+
+t_info			*print_udecimal(va_list *args, t_info *info)
+{
+	intmax_t	num;
+	char		*buf;
+
+	if (info->modifier == 0 && info->format == 'u')
+		num = (uintmax_t)va_arg((*args), unsigned int);
+	else if (info->modifier == 0 && info->format == 'U')
+		num = (uintmax_t)va_arg((*args), unsigned long int);
 	else
+		num = udeci_modifiers(info, args);
+	buf = ft_uintmaxt_itoa(num);
+	buf = udeci_precision(buf, info);
+	if (info->space > 0)
+		info = udeci_space(buf, info);
+	if (info->space == 0)
 	{
 		info->printed += ft_strlen(buf);
 		ft_putstr(buf);
 	}
-	free(buf);
+	ft_memdel((void **)&buf);
 	return (info);
 }

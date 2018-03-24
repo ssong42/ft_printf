@@ -6,13 +6,12 @@
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 17:41:14 by ssong             #+#    #+#             */
-/*   Updated: 2018/03/21 23:13:26 by ssong            ###   ########.fr       */
+/*   Updated: 2018/03/23 18:55:38 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 #include "ft_printf.h"
-
 
 static char		*precision_deci(t_info *info, char *buf, intmax_t num)
 {
@@ -85,7 +84,7 @@ static void		print_buf(t_info *info, char *buf, intmax_t num)
 	ft_putstr(buf);
 }
 
-t_info		*print_decimal(va_list *args, t_info *info)
+t_info			*print_decimal(va_list *args, t_info *info)
 {
 	char		*buf;
 	intmax_t	num;

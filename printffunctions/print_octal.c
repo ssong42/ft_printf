@@ -6,15 +6,14 @@
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/16 13:51:04 by ssong             #+#    #+#             */
-/*   Updated: 2018/03/23 09:20:24 by ssong            ###   ########.fr       */
+/*   Updated: 2018/03/23 11:59:54 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 #include "ft_printf.h"
 
-/*
-static char	*precision_octal(t_info *info, char *buf)
+static char		*precision_octal(t_info *info, char *buf)
 {
 	char	*temp;
 
@@ -31,16 +30,10 @@ static char	*precision_octal(t_info *info, char *buf)
 	return (buf);
 }
 
-t_info		*print_octal(va_list *args, t_info *info)
+static t_info	*space_octal(t_info *info, char *buf)
 {
-	uintmax_t	num;
-	char		*buf;
+	char	*temp;
 
-	buf = NULL;
-	
-	num = hexi_modifiers(t_info *info, va_list *args)
-	buf = ft_itoa_base(num, 8);
-	buf = precision_octal(t_info *info, buf);
 	if (info->space > 0 && info->space > (int)ft_strlen(buf))
 	{
 		info->printed += info->space;
@@ -50,23 +43,25 @@ t_info		*print_octal(va_list *args, t_info *info)
 		else
 			temp = ft_memset(temp, ' ', info->space);
 		if (info->hash == 1)
-			buf = ft_strcatnew("0", buf);
+			buf = ft_strjoin("0", buf);
 		if (info->left == 1)
 			temp = ft_strncpy(temp, buf, ft_strlen(buf));
 		else if (info->left == 0)
 			temp = ft_strrcpy(temp, buf, ft_strlen(temp), ft_strlen(buf));
 		ft_putstr(temp);
-		free(temp);
+		if (info->hash == 1)
+			ft_memdel((void **)&buf);
+		ft_memdel((void **)&temp);
 	}
-	else
+	return (info);
+}
+
+static	t_info	*print_buf(t_info *info, char *buf, uintmax_t num)
+{
+	if (info->space == 0 || info->space <= (int)ft_strlen(buf))
 	{
 		if (info->hash == 1 && num > 0)
-		{
-			temp = ft_strjoin("0", buf);
-			free(buf);
-			buf = ft_strdup(temp);
-			free(temp);
-		}
+			buf = ft_strjoinfree("0", buf);
 		if (info->plus == 1)
 		{
 			info->printed++;
@@ -80,7 +75,20 @@ t_info		*print_octal(va_list *args, t_info *info)
 		info->printed += ft_strlen(buf);
 		ft_putstr(buf);
 	}
-	free(buf);
 	return (info);
 }
-*/
+
+t_info			*print_octal(va_list *args, t_info *info)
+{
+	uintmax_t	num;
+	char		*buf;
+
+	buf = NULL;
+	num = hexi_modifiers(info, args);
+	buf = ft_itoa_base(num, 8);
+	buf = precision_octal(info, buf);
+	info = space_octal(info, buf);
+	info = print_buf(info, buf, num);
+	ft_memdel((void **)&buf);
+	return (info);
+}

@@ -6,14 +6,14 @@
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/15 10:35:32 by ssong             #+#    #+#             */
-/*   Updated: 2018/03/21 20:50:06 by ssong            ###   ########.fr       */
+/*   Updated: 2018/03/23 18:54:39 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 #include "ft_printf.h"
 
-char	*precision_str(t_info *info, char *str)
+static char	*precision_str(t_info *info, char *str)
 {
 	if (!info->precision)
 		str = ft_memset(str, 0, ft_strlen(str));
@@ -36,7 +36,7 @@ static char	*space_str(t_info *info, char *str)
 	return (temp);
 }
 
-t_info	*print_str(va_list *args, t_info *info)
+t_info		*print_str(va_list *args, t_info *info)
 {
 	char *str;
 

@@ -6,24 +6,24 @@
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/20 19:51:25 by ssong             #+#    #+#             */
-/*   Updated: 2018/03/20 22:18:28 by ssong            ###   ########.fr       */
+/*   Updated: 2018/03/23 18:51:49 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 #include "ft_printf.h"
 
-static int		ft_wstrlen(wchar_t *str)
+static int	ft_wstrlen(wchar_t *str)
 {
 	int i;
 
 	i = 0;
 	while (str[i])
 		i++;
-	return(i);
+	return (i);
 }
 
-t_info	*print_wstr(va_list *args, t_info *info)
+t_info		*print_wstr(va_list *args, t_info *info)
 {
 	wchar_t *str;
 

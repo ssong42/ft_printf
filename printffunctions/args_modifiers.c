@@ -6,14 +6,14 @@
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/21 23:07:48 by ssong             #+#    #+#             */
-/*   Updated: 2018/03/22 23:07:51 by ssong            ###   ########.fr       */
+/*   Updated: 2018/03/23 20:14:36 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 #include "ft_printf.h"
 
-intmax_t		deci_modifier(t_info *info, va_list *args)
+intmax_t	deci_modifier(t_info *info, va_list *args)
 {
 	intmax_t num;
 
@@ -36,7 +36,7 @@ intmax_t		deci_modifier(t_info *info, va_list *args)
 		num = (intmax_t)va_arg((*args), size_t);
 	return (num);
 }
-	
+
 uintmax_t	hexi_modifiers(t_info *info, va_list *args)
 {
 	uintmax_t num;
@@ -46,12 +46,33 @@ uintmax_t	hexi_modifiers(t_info *info, va_list *args)
 		num = (uintmax_t)va_arg((*args), unsigned int);
 	else if (info->modifier == 'l')
 		num = (uintmax_t)va_arg((*args), unsigned long int);
-	// ll
 	else if (info->modifier == 'm')
 		num = (uintmax_t)va_arg((*args), unsigned long long int);
 	else if (info->modifier == 'h')
 		num = (uintmax_t)(unsigned short)va_arg((*args), unsigned int);
-	// hh
+	else if (info->modifier == 'a')
+		num = (uintmax_t)(unsigned char)va_arg((*args), unsigned int);
+	else if (info->modifier == 'j')
+		num = va_arg((*args), uintmax_t);
+	else if (info->modifier == 'z')
+		num = (uintmax_t)va_arg((*args), size_t);
+	return (num);
+}
+
+uintmax_t	udeci_modifiers(t_info *info, va_list *args)
+{
+	uintmax_t num;
+
+	if (info->modifier == 0 && info->format == 'u')
+		num = (uintmax_t)va_arg((*args), unsigned int);
+	if (info->modifier == 0 && info->format == 'U')
+		num = (uintmax_t)va_arg((*args), unsigned long int);
+	else if (info->modifier == 'l')
+		num = (uintmax_t)va_arg((*args), unsigned long int);
+	else if (info->modifier == 'm')
+		num = (uintmax_t)va_arg((*args), unsigned long long int);
+	else if (info->modifier == 'h')
+		num = (uintmax_t)va_arg((*args), unsigned long int);
 	else if (info->modifier == 'a')
 		num = (uintmax_t)(unsigned char)va_arg((*args), unsigned int);
 	else if (info->modifier == 'j')

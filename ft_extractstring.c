@@ -6,7 +6,7 @@
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/20 22:42:22 by ssong             #+#    #+#             */
-/*   Updated: 2018/03/20 22:42:59 by ssong            ###   ########.fr       */
+/*   Updated: 2018/03/23 20:21:01 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*extract_string(const char *str, int start, int end)
 {
-	char *temp;
-	int i;
-	int iter;
+	char	*temp;
+	int		i;
+	int		iter;
 
 	i = 0;
 	iter = start;

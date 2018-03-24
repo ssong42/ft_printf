@@ -6,7 +6,7 @@
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/26 10:42:53 by ssong             #+#    #+#             */
-/*   Updated: 2018/03/23 08:57:16 by ssong            ###   ########.fr       */
+/*   Updated: 2018/03/23 18:51:17 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,60 +34,56 @@ t_functions	*set_fptr(t_functions *functions)
 	return (functions);
 }
 
-t_info		*find_call(t_functions *functions, t_info *info, va_list *args)
+t_info		*find_call(t_functions *fct, t_info *info, va_list *args)
 {
 	int i;
 
 	i = 0;
-	while (functions[i].format != info->format)
+	while (fct[i].format != info->format)
 		i++;
-	info = functions[i].ptr(args, info);
+	info = fct[i].ptr(args, info);
 	return (info);
 }
 
-t_info		*find_format(const char *str, t_info *info, va_list *args)
+t_data		*find_format(const char *str, t_data *data, va_list *args)
 {
-	info->end = info->index + 1;
-	while (!isformat(str[info->end]) && str[info->end])
-		info->end++;
-	if (!str[info->end])
+	data->info->end = data->info->index + 1;
+	while (!isformat(str[data->info->end]) && str[data->info->end])
+		data->info->end++;
+	if (!str[data->info->end])
 	{
 		ft_putchar('%');
-		info->index++;
-		return (info);
+		data->info->index++;
+		return (data);
 	}
-	set_flag_info(info, str, args);
-	info->format = str[info->end];
-	info = find_call(info->functions, info, args);
-	info->index = info->end + 1;
-	reset_info(info);
-	return (info);
+	set_flag_info(data->info, str, args);
+	data->info->format = str[data->info->end];
+	data->info = find_call(data->functions, data->info, args);
+	data->info->index = data->info->end + 1;
+	reset_info(data->info);
+	return (data);
 }
 
 int			ft_printf(const char *str, ...)
 {
-	t_info		*info;
-	va_list		args;
-	int			chars;
+	t_data	*data;
+	va_list	args;
+	int		chars;
 
 	va_start(args, str);
-	info = init_info();
-	while (str[info->index])
+	data = init_info();
+	while (str[data->info->index])
 	{
-		/*
-		if (str[info->index] == '%')
-			info = find_format(str, info, &args);
+		if (str[data->info->index] == '%')
+			data = find_format(str, data, &args);
 		else
 		{
-			ft_putchar(str[info->index]);
-			info->printed++;
-			info->index++;
+			ft_putchar(str[data->info->index]);
+			data->info->printed++;
+			data->info->index++;
 		}
-		*/
-		ft_putchar(str[info->index]);
-		info->index++;
 	}
-	chars = info->printed;
-	ft_memdel((void **)&info);
+	chars = data->info->printed;
+	ft_memdel((void **)&data->info);
 	return (chars);
 }

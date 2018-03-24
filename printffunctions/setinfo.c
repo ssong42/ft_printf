@@ -6,7 +6,7 @@
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/20 22:38:52 by ssong             #+#    #+#             */
-/*   Updated: 2018/03/21 11:26:14 by ssong            ###   ########.fr       */
+/*   Updated: 2018/03/23 18:49:40 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,28 +35,29 @@ int		isplusminus(char c)
 	return (0);
 }
 
-t_info	*init_info(void)
+t_data	*init_info(void)
 {
-	t_info *info;
+	t_data *data;
 
-	info = malloc(sizeof(t_info));
-	info->left = 0;
-	info->hash = 0;
-	info->minus = 0;
-	info->format = 0;
-	info->zero = 0;
-	info->sign = 0;
-	info->plus = 0;
-	info->space = 0;
-	info->width = 0;
-	info->precision = -1;
-	info->modifier = 0;
-	info->printed = 0;
-	info->index = 0;
-	info->end = 0;
-	info->functions = malloc(sizeof(t_functions) * 16);
-	info->functions = set_fptr(info->functions);
-	return (info);
+	data = malloc(sizeof(t_data));
+	data->info = malloc(sizeof(t_info));
+	data->info->left = 0;
+	data->info->hash = 0;
+	data->info->minus = 0;
+	data->info->format = 0;
+	data->info->zero = 0;
+	data->info->sign = 0;
+	data->info->plus = 0;
+	data->info->space = 0;
+	data->info->width = 0;
+	data->info->precision = -1;
+	data->info->modifier = 0;
+	data->info->printed = 0;
+	data->info->index = 0;
+	data->info->end = 0;
+	data->functions = malloc(sizeof(t_functions) * 16);
+	data->functions = set_fptr(data->functions);
+	return (data);
 }
 
 t_info	*reset_info(t_info *info)
