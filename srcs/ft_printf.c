@@ -6,11 +6,10 @@
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/26 10:42:53 by ssong             #+#    #+#             */
-/*   Updated: 2018/03/23 22:20:41 by ssong            ###   ########.fr       */
+/*   Updated: 2018/03/26 11:31:47 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
 #include "ft_printf.h"
 
 t_functions	*set_fptr(t_functions *functions)

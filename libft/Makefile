@@ -6,16 +6,13 @@
 #    By: ssong <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/26 18:30:33 by ssong             #+#    #+#              #
-#    Updated: 2018/03/26 12:15:52 by ssong            ###   ########.fr        #
+#    Updated: 2018/03/26 11:43:36 by ssong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprintf.a
-INCLUDES = ./includes/.
-SRCSD = ./libft/
-PDIR = ./srcs/
+NAME = libft.a
+SRCSD = ./
 FLAGS = -Wall -Werror -Wextra
-
 FILES = ft_strrchr ft_putstr ft_strcmp ft_strlcat ft_memcpy \
 		ft_memmove ft_strsplit ft_strncpy ft_lstmap \
 		ft_lstadd ft_striter ft_strstr ft_isdigit ft_putnbr \
@@ -35,17 +32,13 @@ FILES = ft_strrchr ft_putstr ft_strcmp ft_strlcat ft_memcpy \
 		ft_intmaxt_itoa ft_strrcpy ft_strcatnew ft_wstrdup \
 		ft_wputstr ft_wputchar ft_extractstring
 
-PFILES = ft_printf print_decimal print_string print_hexi print_octal \
-		 print_udecimal print_address print_printed print_wstring \
-		 setinfo set_flag_info parse_flags print_char args_modifiers
-
-CFILES = $(patsubst %, $(SRCSD)%.c, $(FILES)) $(patsubst %, $(PDIR)%.c, $(PFILES))
-OFILES = $(patsubst %, %.o, $(FILES)) $(patsubst %, %.o, $(PFILES))
+CFILES = $(patsubst %, $(SRCSD)%.c, $(FILES))
+OFILES = $(patsubst %, $(SRCSD)%.o, $(FILES))
 
 all: $(NAME)
 
 $(NAME):
-	gcc $(FLAGS) -c $(CFILES) -I $(INCLUDES)
+	gcc $(FLAGS) -c $(CFILES)
 	ar rc $(NAME) $(OFILES)
 	ranlib $(NAME)
 

@@ -6,11 +6,10 @@
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/15 10:35:32 by ssong             #+#    #+#             */
-/*   Updated: 2018/03/23 21:05:37 by ssong            ###   ########.fr       */
+/*   Updated: 2018/03/26 12:13:42 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
 #include "ft_printf.h"
 
 static char	*precision_str(t_info *info, char *str)

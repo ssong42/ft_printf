@@ -6,13 +6,14 @@
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/13 15:23:00 by ssong             #+#    #+#             */
-/*   Updated: 2018/03/23 20:15:29 by ssong            ###   ########.fr       */
+/*   Updated: 2018/03/26 12:14:26 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
+#include "../libft/libft.h"
 typedef struct	s_info
 {
 	int			hash;

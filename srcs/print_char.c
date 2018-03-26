@@ -6,11 +6,10 @@
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/21 11:50:38 by ssong             #+#    #+#             */
-/*   Updated: 2018/03/21 20:50:05 by ssong            ###   ########.fr       */
+/*   Updated: 2018/03/26 11:30:30 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
 #include "ft_printf.h"
 
 static t_info	*space_char(t_info *info, char c)
@@ -33,13 +32,13 @@ static t_info	*space_char(t_info *info, char c)
 
 t_info			*print_char(va_list *args, t_info *info)
 {
-	char c;
+	unsigned char c;
 
 	c = 0;
 	if (info->format == '%')
 		c = '%';
 	else
-		c = (char)va_arg((*args), int);
+		c = (unsigned char)va_arg((*args), int);
 	if (info->space > 0)
 		space_char(info, c);
 	else

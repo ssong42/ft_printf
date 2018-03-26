@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_address.c                                    :+:      :+:    :+:   */
+/*   print_printed.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/16 22:44:32 by ssong             #+#    #+#             */
-/*   Updated: 2018/03/23 20:47:16 by ssong            ###   ########.fr       */
+/*   Created: 2018/03/20 16:19:28 by ssong             #+#    #+#             */
+/*   Updated: 2018/03/26 11:30:45 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
 #include "ft_printf.h"
 
-t_info	*print_address(va_list *args, t_info *info)
+t_info	*print_printed(va_list *args, t_info *info)
 {
-	uintmax_t	digit;
-	char		*str;
+	int		*num;
 
-	digit = va_arg((*args), uintmax_t);
-	str = ft_strjoin("0x", ft_hexitoa(digit));
-	ft_putstr(str);
-	info->printed += ft_strlen(str);
-	ft_memdel((void **)&str);
+	num = va_arg((*args), int *);
+	*num = info->printed;
 	return (info);
 }

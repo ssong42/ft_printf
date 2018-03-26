@@ -6,11 +6,10 @@
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/21 23:07:48 by ssong             #+#    #+#             */
-/*   Updated: 2018/03/23 20:14:36 by ssong            ###   ########.fr       */
+/*   Updated: 2018/03/26 11:30:09 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
 #include "ft_printf.h"
 
 intmax_t	deci_modifier(t_info *info, va_list *args)

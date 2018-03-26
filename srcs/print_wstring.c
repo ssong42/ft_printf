@@ -6,11 +6,10 @@
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/20 19:51:25 by ssong             #+#    #+#             */
-/*   Updated: 2018/03/23 20:42:19 by ssong            ###   ########.fr       */
+/*   Updated: 2018/03/26 12:13:49 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
 #include "ft_printf.h"
 
 static int	ft_wstrlen(wchar_t *str)

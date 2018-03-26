@@ -6,11 +6,10 @@
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/20 22:48:26 by ssong             #+#    #+#             */
-/*   Updated: 2018/03/23 20:49:39 by ssong            ###   ########.fr       */
+/*   Updated: 2018/03/26 11:31:39 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
 #include "ft_printf.h"
 
 bool	double_modifiers(t_info **info, const char *str)
