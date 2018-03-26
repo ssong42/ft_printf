@@ -4,7 +4,7 @@
  
 # SYNOPSIS
 
-  ft_printf format [arguments ...]
+  ft_printf(const char *str, arguments ...)
 
 # Range
 Can Handle the format identifiers
