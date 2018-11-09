@@ -1,40 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_btree_create_node.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/27 19:07:43 by ssong             #+#    #+#             */
-/*   Updated: 2018/02/15 11:34:43 by ssong            ###   ########.fr       */
+/*   Created: 2017/12/09 15:11:52 by ssong             #+#    #+#             */
+/*   Updated: 2018/04/26 09:56:00 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+t_btree		*ft_btree_create_node(void *item)
 {
-	int i;
-	int num;
-	int neg;
+	t_btree	*tmp;
 
-	num = 0;
-	neg = 1;
-	i = 0;
-	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t'
-		|| str[i] == '\r' || str[i] == '\v' || str[i] == '\f')
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	tmp = malloc(sizeof(t_btree));
+	if (tmp)
 	{
-		if (str[i] == '-')
-			neg = -1;
-		i++;
+		tmp->left = NULL;
+		tmp->right = NULL;
+		tmp->item = item;
 	}
-	while (str[i] && str[i] >= '0' && str[i] <= '9')
-	{
-		num = num * 10;
-		num = num + (str[i] - '0');
-		i++;
-	}
-	return (num * neg);
+	return (tmp);
 }

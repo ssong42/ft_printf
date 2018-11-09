@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/29 14:58:56 by ssong             #+#    #+#             */
-/*   Updated: 2018/03/16 09:29:24 by ssong            ###   ########.fr       */
+/*   Created: 2017/11/30 20:18:33 by ssong             #+#    #+#             */
+/*   Updated: 2017/12/06 18:20:35 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *restrict s1, const char *restrict s2)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	int i;
-	int j;
+	char	*a;
+	int		i;
 
-	j = 0;
 	i = 0;
-	while (s1[i])
+	a = (char*)(b);
+	while (len > 0)
 	{
+		a[i] = c;
 		i++;
+		len--;
 	}
-	while (s2[j])
-	{
-		s1[i + j] = s2[j];
-		j++;
-	}
-	s1[i + j] = 0;
-	return ((char*)s1);
+	return (a);
 }

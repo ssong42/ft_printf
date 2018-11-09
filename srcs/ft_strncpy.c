@@ -1,42 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/05 17:24:17 by ssong             #+#    #+#             */
-/*   Updated: 2018/03/14 18:22:06 by ssong            ###   ########.fr       */
+/*   Created: 2017/11/30 11:27:45 by ssong             #+#    #+#             */
+/*   Updated: 2017/12/06 16:05:26 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-char		*ft_itoa(int n)
+char	*ft_strncpy(char *dst, const char *src, size_t len)
 {
-	char	*str;
-	size_t	c;
-	size_t	neg;
+	size_t i;
 
-	neg = 1;
-	c = ft_countdigits(n);
-	str = ft_strnew(c);
-	if (!str)
-		return (NULL);
-	str[c] = '\0';
-	if (n == 0)
-		str[0] = '0';
-	while (n != 0)
+	i = 0;
+	while (src[i] && len > 0)
 	{
-		if (n < 0)
-		{
-			str[0] = '-';
-			neg = -1;
-		}
-		str[c - 1] = ((n % 10) * neg) + '0';
-		n = (n / 10);
-		c--;
+		dst[i] = src[i];
+		i++;
+		len--;
 	}
-	return (str);
+	while (len > 0)
+	{
+		dst[i] = '\0';
+		i++;
+		len--;
+	}
+	return (dst);
 }

@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_btree_create_node.c                             :+:      :+:    :+:   */
+/*   ft_bzeroint.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/09 15:11:52 by ssong             #+#    #+#             */
-/*   Updated: 2017/12/09 15:31:45 by ssong            ###   ########.fr       */
+/*   Created: 2018/11/08 16:23:06 by ssong             #+#    #+#             */
+/*   Updated: 2018/11/08 16:26:01 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-t_btree		*ft_btree_create_node(void *item)
+void	ft_bzeroint(void *a, size_t n)
 {
-	t_btree	*tmp;
+	int *s;
 
-	tmp = malloc(sizeof(t_btree));
-	if (tmp)
+	s = (int*)(a);
+	while (n > 0)
 	{
-		tmp->left = NULL;
-		tmp->right = NULL;
-		tmp->item = item;
+		*s = 0;
+		s++;
+		n--;
 	}
-	return (tmp);
 }

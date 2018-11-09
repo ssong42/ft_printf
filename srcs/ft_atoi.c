@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/30 11:27:45 by ssong             #+#    #+#             */
-/*   Updated: 2018/03/20 15:31:44 by ssong            ###   ########.fr       */
+/*   Created: 2017/11/27 19:07:43 by ssong             #+#    #+#             */
+/*   Updated: 2018/04/26 09:32:57 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dst, const char *src, size_t len)
+int	ft_atoi(const char *str)
 {
-	size_t i;
+	int i;
+	int num;
+	int neg;
 
+	num = 0;
+	neg = 1;
 	i = 0;
-	while (src[i] && len > 0)
-	{
-		dst[i] = src[i];
+	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t'
+		|| str[i] == '\r' || str[i] == '\v' || str[i] == '\f')
 		i++;
-		len--;
-	}
-	while (len > 0)
+	if (str[i] == '-' || str[i] == '+')
 	{
-		dst[i] = '\0';
+		if (str[i] == '-')
+			neg = -1;
 		i++;
-		len--;
 	}
-	return (dst);
+	while (str[i] && str[i] >= '0' && str[i] <= '9')
+	{
+		num = num * 10;
+		num = num + (str[i] - '0');
+		i++;
+	}
+	return (num * neg);
 }

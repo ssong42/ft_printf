@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_twodarray.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/30 20:18:33 by ssong             #+#    #+#             */
-/*   Updated: 2018/03/20 19:42:16 by ssong            ###   ########.fr       */
+/*   Created: 2018/04/26 09:55:40 by ssong             #+#    #+#             */
+/*   Updated: 2018/04/26 10:09:15 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+char	**ft_twodchararray(int row, int col)
 {
-	char	*a;
-	int		i;
+	char **map;
+	int i;
 
 	i = 0;
-	a = (char*)(b);
-	while (len > 0)
+	map = malloc(sizeof(char *) * row);
+	if (!map)
+		return (0);
+	while(i < row)
 	{
-		a[i] = c;
+		map[i] = malloc(sizeof(char) * col + 1);
 		i++;
-		len--;
 	}
-	return (a);
+	return (map);
 }

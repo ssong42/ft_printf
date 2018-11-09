@@ -6,7 +6,7 @@
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 16:04:14 by ssong             #+#    #+#             */
-/*   Updated: 2018/03/24 10:44:48 by ssong            ###   ########.fr       */
+/*   Updated: 2018/11/08 20:25:15 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 # define LIBFT_H
 
 # include <string.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdio.h>
-# include <stdarg.h>
-# include <stdbool.h>
-# include <wchar.h>
-# include <locale.h>
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <stdarg.h>
+#include <stdbool.h>
+#include <wchar.h>
+#include <locale.h>
+#include <unistd.h>
 
 typedef struct		s_btree
 {
@@ -112,6 +113,11 @@ void				ft_free2darray(char **longmap, int x, int y);
 char				*ft_strjoinfree(char *final, char *end);
 char				*ft_straddchr(char *str, char a);
 char				*ft_stradduchr(char *str, unsigned char a);
+
+/*
+**	ft_printf functions
+*/
+
 char				*ft_uintmaxt_itoa(uintmax_t n);
 int					ft_uintmaxt_countdigits(uintmax_t n);
 int					ft_hex_countdigits(uintmax_t n);
@@ -126,4 +132,12 @@ int					ft_countdigits_base(uintmax_t n, int base);
 int					ft_printf(const char *str, ...);
 char				*ft_intmaxt_itoa(intmax_t n);
 char				*extract_string(const char *str, int start, int end);
+char				**ft_twodchararray(int row, int col);
+/*
+**	Get Next Line
+*/
+
+int				get_next_line(const int fd, char **line);
+void				ft_bzeroint(void *a, size_t n);
+int				ft_abs(int c);
 #endif

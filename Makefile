@@ -6,14 +6,14 @@
 #    By: ssong <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/26 18:30:33 by ssong             #+#    #+#              #
-#    Updated: 2018/03/26 12:15:52 by ssong            ###   ########.fr        #
+#    Updated: 2018/11/08 20:25:34 by ssong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 INCLUDES = ./includes/.
-SRCSD = ./libft/
-PDIR = ./srcs/
+SRCSD = ./srcs/
+PDIR = ./printffunctions/
 FLAGS = -Wall -Werror -Wextra
 
 FILES = ft_strrchr ft_putstr ft_strcmp ft_strlcat ft_memcpy \
@@ -33,7 +33,8 @@ FILES = ft_strrchr ft_putstr ft_strcmp ft_strlcat ft_memcpy \
 		ft_hexitoa ft_hex_countdigits ft_hex_itoa ft_itoa_base \
 		ft_countdigits_base ft_itoa_deci ft_itoa_float \
 		ft_intmaxt_itoa ft_strrcpy ft_strcatnew ft_wstrdup \
-		ft_wputstr ft_wputchar ft_extractstring
+		ft_wputstr ft_wputchar ft_extractstring get_next_line \
+		ft_twodchararray ft_bzeroint ft_abs
 
 PFILES = ft_printf print_decimal print_string print_hexi print_octal \
 		 print_udecimal print_address print_printed print_wstring \
@@ -45,14 +46,14 @@ OFILES = $(patsubst %, %.o, $(FILES)) $(patsubst %, %.o, $(PFILES))
 all: $(NAME)
 
 $(NAME):
-	gcc $(FLAGS) -c $(CFILES) -I $(INCLUDES)
-	ar rc $(NAME) $(OFILES)
-	ranlib $(NAME)
+	@gcc $(FLAGS) -c $(CFILES) -I $(INCLUDES)
+	@ar rc $(NAME) $(OFILES)
+	@ranlib $(NAME)
 
 clean:
-	rm -rf $(OFILES)
+	@rm -rf $(OFILES)
 
 fclean: clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
 
 re: fclean all

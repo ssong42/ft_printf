@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdel.c                                        :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/04 11:41:50 by ssong             #+#    #+#             */
-/*   Updated: 2018/03/21 13:22:11 by ssong            ###   ########.fr       */
+/*   Created: 2017/11/29 14:58:56 by ssong             #+#    #+#             */
+/*   Updated: 2017/12/06 18:21:42 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "stdlib.h"
 
-void	ft_strdel(char **as)
+char	*ft_strcat(char *restrict s1, const char *restrict s2)
 {
-	if (as == NULL)
-		return ;
-	free(*as);
-	*as = NULL;
+	int i;
+	int j;
+
+	j = 0;
+	i = 0;
+	while (s1[i])
+	{
+		i++;
+	}
+	while (s2[j])
+	{
+		s1[i + j] = s2[j];
+		j++;
+	}
+	s1[i + j] = 0;
+	return ((char*)s1);
 }

@@ -1,38 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/04 14:24:12 by ssong             #+#    #+#             */
-/*   Updated: 2018/03/20 16:03:54 by ssong            ###   ########.fr       */
+/*   Created: 2017/12/05 17:24:17 by ssong             #+#    #+#             */
+/*   Updated: 2017/12/09 15:33:02 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char		*ft_itoa(int n)
 {
-	int		i;
-	int		len;
 	char	*str;
+	size_t	c;
+	size_t	neg;
 
-	i = 0;
-	if (s1 && s2)
+	neg = 1;
+	c = ft_countdigits(n);
+	str = ft_strnew(c);
+	if (!str)
+		return (NULL);
+	str[c] = '\0';
+	if (n == 0)
+		str[0] = '0';
+	while (n != 0)
 	{
-		len = ft_strlen(s1) + ft_strlen(s2);
-		str = (char*)malloc(sizeof(char) * (len + 1));
-		if (str == NULL)
-			return (NULL);
-		ft_strcpy(str, s1);
-		ft_strcat(str, s2);
-		return (str);
+		if (n < 0)
+		{
+			str[0] = '-';
+			neg = -1;
+		}
+		str[c - 1] = ((n % 10) * neg) + '0';
+		n = (n / 10);
+		c--;
 	}
-	else if (s1)
-		return (ft_strdup(s1));
-	else if (s2)
-		return (ft_strdup(s2));
-	return (NULL);
+	return (str);
 }
