@@ -6,7 +6,7 @@
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 16:04:14 by ssong             #+#    #+#             */
-/*   Updated: 2018/11/08 20:25:15 by ssong            ###   ########.fr       */
+/*   Updated: 2018/11/10 15:20:16 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ int					ft_countwords(char const *s, char c);
 int					**ft_mem_grid(int row, int col);
 t_btree				*ft_btree_create_node(void *item);
 void				ft_swap(int *a, int *b);
-void				ft_free2darray(char **longmap, int x, int y);
+void				ft_free2darray(void **longmap, int y);
 char				*ft_strjoinfree(char *final, char *end);
 char				*ft_straddchr(char *str, char a);
 char				*ft_stradduchr(char *str, unsigned char a);
