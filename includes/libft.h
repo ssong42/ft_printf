@@ -6,7 +6,7 @@
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 16:04:14 by ssong             #+#    #+#             */
-/*   Updated: 2018/11/10 15:20:16 by ssong            ###   ########.fr       */
+/*   Updated: 2018/11/10 20:16:45 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,7 @@ int					ft_printf(const char *str, ...);
 char				*ft_intmaxt_itoa(intmax_t n);
 char				*extract_string(const char *str, int start, int end);
 char				**ft_twodchararray(int row, int col);
+
 /*
 **	Get Next Line
 */
@@ -140,4 +141,10 @@ char				**ft_twodchararray(int row, int col);
 int				get_next_line(const int fd, char **line);
 void				ft_bzeroint(void *a, size_t n);
 int				ft_abs(int c);
+
+/*
+**	Filler
+*/
+
+char	*ft_strjoinfreee(char *final, char *end);
 #endif

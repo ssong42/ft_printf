@@ -6,7 +6,7 @@
 #    By: ssong <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/26 18:30:33 by ssong             #+#    #+#              #
-#    Updated: 2018/11/08 20:25:34 by ssong            ###   ########.fr        #
+#    Updated: 2018/11/10 20:16:22 by ssong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ FILES = ft_strrchr ft_putstr ft_strcmp ft_strlcat ft_memcpy \
 		ft_countdigits_base ft_itoa_deci ft_itoa_float \
 		ft_intmaxt_itoa ft_strrcpy ft_strcatnew ft_wstrdup \
 		ft_wputstr ft_wputchar ft_extractstring get_next_line \
-		ft_twodchararray ft_bzeroint ft_abs
+		ft_twodchararray ft_bzeroint ft_abs ft_strjoinfreee
 
 PFILES = ft_printf print_decimal print_string print_hexi print_octal \
 		 print_udecimal print_address print_printed print_wstring \
