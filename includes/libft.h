@@ -14,14 +14,14 @@
 # define LIBFT_H
 
 # include <string.h>
-#include <string.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <stdarg.h>
-#include <stdbool.h>
-#include <wchar.h>
-#include <locale.h>
-#include <unistd.h>
+# include <string.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <stdarg.h>
+# include <stdbool.h>
+# include <wchar.h>
+# include <locale.h>
+# include <unistd.h>
 
 typedef struct		s_btree
 {
@@ -138,13 +138,13 @@ char				**ft_twodchararray(int row, int col);
 **	Get Next Line
 */
 
-int				get_next_line(const int fd, char **line);
+int					get_next_line(const int fd, char **line);
 void				ft_bzeroint(void *a, size_t n);
-int				ft_abs(int c);
+int					ft_abs(int c);
 
 /*
 **	Filler
 */
 
-char	*ft_strjoinfreee(char *final, char *end);
+char				*ft_strjoinfreee(char *final, char *end);
 #endif

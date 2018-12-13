@@ -14,14 +14,14 @@
 
 char	**ft_twodchararray(int row, int col)
 {
-	char **map;
-	int i;
+	char	**map;
+	int		i;
 
 	i = 0;
 	map = malloc(sizeof(char *) * row);
 	if (!map)
 		return (0);
-	while(i < row)
+	while (i < row)
 	{
 		map[i] = malloc(sizeof(char) * col + 1);
 		i++;
